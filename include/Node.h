@@ -11,6 +11,7 @@
 
 #include <vector>
 #include <memory_resource>
+#include <string>
 
 namespace Grafcet {
     class StateMachine;
@@ -39,11 +40,18 @@ namespace Grafcet {
          * @brief attache un enfant au noeud
          * @param child
          */
-        void addChild(Node *child) {
+        constexpr void addChild(Node *child) {
             this->children.push_back(child);
             child->parent.push_back(this);
         }
 
+        /**
+         * @brief retourne la liste des enfants
+         * @return la liste des enfants
+         */
+        [[nodiscard]] std::pmr::vector<Node*> getChildren() const { return children; }
+
+        std::pmr::string name = "Node";
         /// true si le noeud est une transition, false sinon
         bool isTransition = false;
         /// true si le noeud est synchronisant

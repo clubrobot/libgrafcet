@@ -36,6 +36,12 @@ namespace Grafcet {
         void setStartingNode(Node *startingNode) {this->startingNode = startingNode;}
 
         /**
+         * @brief Retourne le noeud de départ du grafcet
+         * @return Le noeud de départ
+         */
+        Node *getStartingNode() const {return startingNode;}
+
+        /**
          * @brief Parcours le grafcet en executant les actions
          * Utilise une queue pour garder en mémoire les noeuds actifs.
          * Si ces noeuds sont des actions ; la réaliser sinon évaluer
